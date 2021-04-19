@@ -24,3 +24,7 @@ Uygulamada kullanılan temel bilesenler gelistirilmeye devam edildi.
 
 - Tube içerisine verilen itemset ile blocklar olusturuldu.
 - Block verisine göre blockların renkleri degistirili.
+
+> ## Video 5 - ItemSet ile tube olusturma
+
+Itemset verisi ile block ve tube olusturma yapildi.
