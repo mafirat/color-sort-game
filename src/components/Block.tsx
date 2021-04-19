@@ -1,17 +1,20 @@
 import React from "react";
+import { IBlockItem } from "../interfaces";
 interface IProps {
-  id: number;
+  blockData: IBlockItem;
 }
-export const Block: React.FunctionComponent<IProps> = ({ id }) => {
+export const Block: React.FunctionComponent<IProps> = ({ blockData }) => {
   const dragStart = (e: React.DragEvent<HTMLDivElement>) => {
     e.dataTransfer.setData("text", e.currentTarget.id);
   };
   return (
     <div
-      id={id.toString()}
+      id={blockData.toString()}
       draggable
       onDragStart={dragStart}
-      className="block block-red border-white"
-    ></div>
+      className={`block block-${blockData.color} border-white`}
+    >
+      {blockData.id} - {blockData.order}
+    </div>
   );
 };

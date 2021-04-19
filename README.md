@@ -17,3 +17,10 @@ Uygulamada kullanılacak temel bilesenler olusturuldu.
 
 - Block
 - Tube
+
+> ## Video 4 - Temel Bilesenler p2
+
+Uygulamada kullanılan temel bilesenler gelistirilmeye devam edildi.
+
+- Tube içerisine verilen itemset ile blocklar olusturuldu.
+- Block verisine göre blockların renkleri degistirili.

@@ -4,6 +4,12 @@ body {
   margin: 0;
   padding: 0;
 }
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #a3b18a;
+}
 
 .box {
   width: 60px;
@@ -20,10 +26,15 @@ body {
   width: 60px;
   height: 30px;
   border-radius: 10px;
+  color: white;
+  text-align: center;
 }
 
 .block-red {
-  background-color: #f00;
+  background-color: #b71c1c;
+}
+.block-blue {
+  background-color: #0d47a1;
 }
 
 .border-white {
@@ -45,8 +56,13 @@ body {
 .game-area {
   padding: 15px;
   width: fit-content;
-  background-color: #455a64;
+  background-color: #588157;
   border-radius: 15px;
   display: flex;
   gap: 10px;
+}
+
+.container {
+  padding: 50px;
+  width: fit-content;
 }
