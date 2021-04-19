@@ -1,0 +1,17 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  width: 60px;
+  height: 60px;
+  background-color: blueviolet;
+}
+.canvas {
+  width: 600px;
+  height: 350px;
+  background-color: burlywood;
+}
