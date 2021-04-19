@@ -9,7 +9,7 @@ export const Block: React.FunctionComponent<IProps> = ({ blockData }) => {
   };
   return (
     <div
-      id={blockData.toString()}
+      id={blockData.id.toString()}
       draggable
       onDragStart={dragStart}
       className={`block block-${blockData.color} border-white`}

@@ -43,13 +43,14 @@ body {
 
 .tube {
   min-height: 120px;
-  width: fit-content;
+  width: 76px;
   padding: 5px;
   border: 2px solid white;
   border-top: none;
   border-radius: 0 0 10px 10px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 5px;
 }
 
