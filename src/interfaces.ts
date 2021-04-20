@@ -4,3 +4,9 @@ export interface IBlockItem {
     order: number;
     tube: number;
 }
+
+export interface ILevel {
+    itemSet: IBlockItem[],
+    tubeCount: number,
+    colorCount: number
+}

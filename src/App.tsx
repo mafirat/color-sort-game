@@ -4,62 +4,16 @@ import "./styles/site.css";
 import { Tube } from "./components/Tube";
 import { IBlockItem } from "./interfaces";
 import { useRef } from "react";
-const itemSet: IBlockItem[] = [
-  {
-    id: 1,
-    color: "blue",
-    order: 3,
-    tube: 1,
-  },
-  {
-    id: 2,
-    color: "blue",
-    order: 2,
-    tube: 1,
-  },
-  {
-    id: 3,
-    color: "red",
-    order: 1,
-    tube: 1,
-  },
-  {
-    id: 4,
-    color: "red",
-    order: 4,
-    tube: 1,
-  },
-  {
-    id: 5,
-    color: "red",
-    order: 3,
-    tube: 2,
-  },
-  {
-    id: 6,
-    color: "red",
-    order: 2,
-    tube: 2,
-  },
-  {
-    id: 7,
-    color: "blue",
-    order: 1,
-    tube: 2,
-  },
-  {
-    id: 8,
-    color: "blue",
-    order: 4,
-    tube: 2,
-  },
-];
+import { levels } from "./levels";
+
 function App() {
   // return <Demo/>
   // lodash -> deepclone deepcopy
+  const [level, setLevel] = useState<number>(0);
   const [elements, setElements] = useState<IBlockItem[]>(
-    JSON.parse(JSON.stringify(itemSet))
+    JSON.parse(JSON.stringify(levels[level].itemSet))
   );
+
   const moves = useRef<IBlockItem[]>([]);
 
   const dropHandler = (e: React.DragEvent<HTMLDivElement>) => {
@@ -86,7 +40,7 @@ function App() {
   };
 
   const reset = () => {
-    setElements(JSON.parse(JSON.stringify(itemSet)));
+    setElements(JSON.parse(JSON.stringify(levels[level].itemSet)));
     moves.current = [];
   };
   const undo = () => {
@@ -110,8 +64,29 @@ function App() {
       />
     );
   }
+  const levelChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setLevel(Number.parseInt(e.currentTarget.value));
+  };
+  console.log({ level });
+
   return (
     <div className="container">
+      <div className="flex-box level-area">
+        <span className="title">Seviye:</span>
+        <select
+          className="level-dropdown"
+          name="level"
+          id="level"
+          onChange={levelChange}
+          value={level}
+        >
+          {levels.map((l, i) => (
+            <option key={i} value={i}>
+              {i + 1}
+            </option>
+          ))}
+        </select>
+      </div>
       <div className="game-area">{tubes}</div>
       <div className="controls flex-box">
         <button onClick={reset}>sifirla</button>

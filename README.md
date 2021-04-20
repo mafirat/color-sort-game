@@ -59,3 +59,7 @@ Bakılması gereken teknik konular.
 
 Kullanıcıya yaptığı hamleleri geri alma özelliği kazandırıldı.
 `useRef` kullanımı gerçekleştirildi.
+
+> ## Video 11 - Seviye sistemi ekleme p1
+
+Kullanıcıya farklı seviyeler seçebileceği bir sistem eklenmeye başlandı.
