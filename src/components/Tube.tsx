@@ -1,5 +1,6 @@
 import React from "react";
 import { IBlockItem } from "../interfaces";
+import { checkAll } from "../utils";
 import { Block } from "./Block";
 interface IProps {
   id: string;
@@ -14,6 +15,7 @@ export const Tube: React.FunctionComponent<IProps> = ({
   const allowDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
   };
+  const isSorted = items.length === 4 && items.every(checkAll);
   const blocks = items
     .sort((s, i) => s.order - i.order)
     .map((i, index, arr) => (
@@ -22,7 +24,7 @@ export const Tube: React.FunctionComponent<IProps> = ({
   return (
     <div
       id={`tube${id}`}
-      className="tube"
+      className={`tube ${isSorted ? "sorted" : ""}`}
       onDragOver={allowDrop}
       onDrop={dropHandler}
     >

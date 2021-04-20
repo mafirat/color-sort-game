@@ -67,3 +67,8 @@ Kullanıcıya farklı seviyeler seçebileceği bir sistem eklenmeye başlandı.
 > ## Video 12 - Seviye sistemi ekleme p1
 
 Kullanıcıya farklı seviyeler seçebileceği bir sistem ekleme islemi tamamlandi.
+
+> ## Video 13 - Geri al islemi sinirlama ve tube renklerini degistirme
+
+Kullanıcıya sınırsız geri alma hakkı vermeyip yalnızca son 5 hamle geri hakkı almayı verecek sekilde duzenlendi.
+Tube border renkleri ise aynı renk blokların toplanması halinde degistirildi.

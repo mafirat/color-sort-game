@@ -16,6 +16,12 @@ function App() {
 
   const moves = useRef<IBlockItem[]>([]);
 
+  const addToMoves = (block: IBlockItem) => {
+    if (moves.current.length >= 4) {
+      moves.current.shift();
+    }
+    moves.current.push({ ...block });
+  };
   const dropHandler = (e: React.DragEvent<HTMLDivElement>) => {
     const tubeId = Number.parseInt(e.currentTarget.id.slice(-1));
     const blockId = Number.parseInt(e.dataTransfer.getData("text"));
@@ -27,7 +33,7 @@ function App() {
       tube.length === 0 ||
       (tube.length < 4 && tube[tube.length - 1].color === block?.color)
     ) {
-      moves.current.push({ ...block });
+      addToMoves(block);
       const nElements = elements.map((e) => {
         if (e.id === blockId) {
           e.tube = tubeId;
