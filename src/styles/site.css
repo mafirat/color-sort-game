@@ -55,7 +55,7 @@ body {
 }
 
 .game-area {
-  padding: 15px;
+  padding: 150px;
   width: fit-content;
   background-color: #588157;
   border-radius: 15px;
@@ -63,7 +63,17 @@ body {
   gap: 10px;
 }
 
+.controls {
+  margin-top: 20px;
+}
+
 .container {
   padding: 50px;
   width: fit-content;
+}
+
+.flex-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

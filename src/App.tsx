@@ -55,7 +55,10 @@ const itemSet: IBlockItem[] = [
 ];
 function App() {
   // return <Demo/>
-  const [elements, setElements] = useState<IBlockItem[]>(itemSet);
+  // lodash -> deepclone deepcopy
+  const [elements, setElements] = useState<IBlockItem[]>(
+    JSON.parse(JSON.stringify(itemSet))
+  );
 
   const dropHandler = (e: React.DragEvent<HTMLDivElement>) => {
     const tubeId = Number.parseInt(e.currentTarget.id.slice(-1));
@@ -79,6 +82,11 @@ function App() {
     }
   };
 
+  const reset = () => {
+    console.table(itemSet);
+
+    setElements(JSON.parse(JSON.stringify(itemSet)));
+  };
   let tubes = [];
   for (let i = 1; i <= 3; i++) {
     tubes.push(
@@ -93,6 +101,9 @@ function App() {
   return (
     <div className="container">
       <div className="game-area">{tubes}</div>
+      <div className="controls flex-box">
+        <button onClick={reset}>sifirla</button>
+      </div>
     </div>
   );
 }

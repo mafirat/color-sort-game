@@ -38,10 +38,19 @@ ondrop metodu ile hangi block hangi tube içerisine bırakıldı o yakalandı.
 Drop anında block'u ilgili tube içerisine taşıma yapıldı. Aynı zamanda ortaya çıkan sıralama sorunu `order` verisine göre **sort** ederek çözüldü.
 tube içerisinde en üstte bulunan **block** _draggable_ `true` edilip diğerleri `false` olacak şekilde ayarlandı.
 
-> ## Video 8 - Bırakma anındaki hatalar giderildi.
+> ## Video 8 - Bırakma anındaki hatalar giderildi
 
 Drop anında gerekli kontroller yapıldı.
 
 - dizi büyüklüğü
 - önceki renk kontrolü
 - order güncelleme
+
+> ## Video 9 - Sifirlama islemi eklendi
+
+Burada kullanici oyunun herhangi bir yerinde block dağılımını ilk duruma çevirebileceği bir buton eklendi.
+
+Bakılması gereken teknik konular.
+
+- <https://javascript.info/object-copy> - kopyalama ile ilgili ingilizce kaynak
+- <https://medium.com/@mehmetalifirat/javascript-spreading-ve-destructuring-1ef3cfb9b47d> - spreading ve destruct ile ilgili kendi yazmış olduğum makale.
