@@ -9,7 +9,9 @@ export const Block: React.FunctionComponent<IProps> = ({
   draggable,
 }) => {
   const dragStart = (e: React.DragEvent<HTMLDivElement>) => {
-    e.dataTransfer.setData("text", e.currentTarget.id);
+    if (draggable) {
+      e.dataTransfer.setData("text", e.currentTarget.id);
+    }
   };
   return (
     <div
@@ -18,7 +20,6 @@ export const Block: React.FunctionComponent<IProps> = ({
       onDragStart={dragStart}
       className={`block block-${blockData.color} border-white`}
     >
-      {blockData.id} - {blockData.order}
     </div>
   );
 };

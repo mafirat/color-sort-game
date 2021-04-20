@@ -72,3 +72,8 @@ Kullanıcıya farklı seviyeler seçebileceği bir sistem ekleme islemi tamamlan
 
 Kullanıcıya sınırsız geri alma hakkı vermeyip yalnızca son 5 hamle geri hakkı almayı verecek sekilde duzenlendi.
 Tube border renkleri ise aynı renk blokların toplanması halinde degistirildi.
+
+> ## Video 14 - Sonraki butonu eklendi ve ufak bir hata giderildi
+
+Kullanıcı bölümü tamamladığında altta sonra belirip, bir sonraki seviyeye geçirecek buton eklendi.
+Ayrıca zorla sürükleme işlemi başlatınca ortaya çıkan hata giderildi.

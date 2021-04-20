@@ -19,7 +19,7 @@ export const Tube: React.FunctionComponent<IProps> = ({
   const blocks = items
     .sort((s, i) => s.order - i.order)
     .map((i, index, arr) => (
-      <Block key={i.id} blockData={i} draggable={arr.length - 1 === index} />
+      <Block key={i.id} blockData={i} draggable={!isSorted && (arr.length - 1 === index)} />
     ));
   return (
     <div

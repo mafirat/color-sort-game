@@ -5,11 +5,13 @@ import { Tube } from "./components/Tube";
 import { IBlockItem } from "./interfaces";
 import { useRef } from "react";
 import { levels } from "./levels";
+import { checkAll } from "./utils";
 
 function App() {
   // return <Demo/>
   // lodash -> deepclone deepcopy
   const [level, setLevel] = useState<number>(0);
+  const [isAllSorted, setIsAllSorted] = useState(false);
   const [elements, setElements] = useState<IBlockItem[]>(
     JSON.parse(JSON.stringify(levels[level].itemSet))
   );
@@ -70,11 +72,26 @@ function App() {
       />
     );
   }
-
   useEffect(() => {
+    let f: number = 0;
+    for (let i = 1; i <= levels[level].tubeCount; i++) {
+      const tube = elements.filter((e) => e.tube === i);
+      if (tube.length === 4 && tube.every(checkAll)) {
+        f += 1;
+      }
+      if (f === levels[level].colorCount) {
+        setIsAllSorted(true);
+      }
+    }
+  }, [elements]);
+  useEffect(() => {
+    setIsAllSorted(false);
     reset();
   }, [level]);
 
+  const nextLevel = () => {
+    setLevel(level + 1);
+  };
   const levelChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setLevel(Number.parseInt(e.currentTarget.value));
   };
@@ -102,6 +119,7 @@ function App() {
         <button onClick={undo} disabled={moves.current.length < 1}>
           geri al
         </button>
+        {isAllSorted && <button onClick={nextLevel}>sonraki</button>}
       </div>
     </div>
   );
