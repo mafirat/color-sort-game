@@ -55,9 +55,22 @@ const itemSet: IBlockItem[] = [
 ];
 function App() {
   // return <Demo/>
+  const dropHandler = (e: React.DragEvent<HTMLDivElement>) => {
+    const tube = Number.parseInt(e.currentTarget.id.slice(-1));
+    const block = Number.parseInt(e.dataTransfer.getData("text"));
+    console.log({ block, tube });
+  };
+
   let tubes = [];
   for (let i = 1; i <= 3; i++) {
-    tubes.push(<Tube key={i} items={itemSet.filter((t) => t.tube === i)} />);
+    tubes.push(
+      <Tube
+        id={i.toString()}
+        key={i}
+        items={itemSet.filter((t) => t.tube === i)}
+        dropHandler={dropHandler}
+      />
+    );
   }
   return (
     <div className="container">

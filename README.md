@@ -28,3 +28,7 @@ Uygulamada kullanılan temel bilesenler gelistirilmeye devam edildi.
 > ## Video 5 - ItemSet ile tube olusturma
 
 Itemset verisi ile block ve tube olusturma yapildi.
+
+> ## Video 6 - Ondrop metodu eklendi
+
+ondrop metodu ile hangi block hangi tube içerisine bırakıldı o yakalandı.
