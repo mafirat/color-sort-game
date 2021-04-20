@@ -3,6 +3,7 @@ import "./styles/site.css";
 // import { Demo } from "./components/Demo";
 import { Tube } from "./components/Tube";
 import { IBlockItem } from "./interfaces";
+import { useRef } from "react";
 const itemSet: IBlockItem[] = [
   {
     id: 1,
@@ -59,11 +60,12 @@ function App() {
   const [elements, setElements] = useState<IBlockItem[]>(
     JSON.parse(JSON.stringify(itemSet))
   );
+  const moves = useRef<IBlockItem[]>([]);
 
   const dropHandler = (e: React.DragEvent<HTMLDivElement>) => {
     const tubeId = Number.parseInt(e.currentTarget.id.slice(-1));
     const blockId = Number.parseInt(e.dataTransfer.getData("text"));
-    const block = elements.find((e) => e.id === blockId);
+    const block = elements.filter((e) => e.id === blockId)[0];
     const tube = elements
       .filter((b) => b.tube === tubeId)
       .sort((s, i) => s.order - i.order);
@@ -71,6 +73,7 @@ function App() {
       tube.length === 0 ||
       (tube.length < 4 && tube[tube.length - 1].color === block?.color)
     ) {
+      moves.current.push({ ...block });
       const nElements = elements.map((e) => {
         if (e.id === blockId) {
           e.tube = tubeId;
@@ -83,9 +86,18 @@ function App() {
   };
 
   const reset = () => {
-    console.table(itemSet);
-
     setElements(JSON.parse(JSON.stringify(itemSet)));
+    moves.current = [];
+  };
+  const undo = () => {
+    const lastMove = moves.current.pop();
+    const nElements = elements.map((b) => {
+      if (b.id === lastMove?.id) {
+        return lastMove;
+      }
+      return b;
+    });
+    setElements(nElements);
   };
   let tubes = [];
   for (let i = 1; i <= 3; i++) {
@@ -103,6 +115,9 @@ function App() {
       <div className="game-area">{tubes}</div>
       <div className="controls flex-box">
         <button onClick={reset}>sifirla</button>
+        <button onClick={undo} disabled={moves.current.length < 1}>
+          geri al
+        </button>
       </div>
     </div>
   );

@@ -54,3 +54,8 @@ Bakılması gereken teknik konular.
 
 - <https://javascript.info/object-copy> - kopyalama ile ilgili ingilizce kaynak
 - <https://medium.com/@mehmetalifirat/javascript-spreading-ve-destructuring-1ef3cfb9b47d> - spreading ve destruct ile ilgili kendi yazmış olduğum makale.
+
+> ## Video 10 - Geri Al özelliği eklendi
+
+Kullanıcıya yaptığı hamleleri geri alma özelliği kazandırıldı.
+`useRef` kullanımı gerçekleştirildi.
