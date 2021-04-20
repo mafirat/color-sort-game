@@ -18,7 +18,7 @@ export const Block: React.FunctionComponent<IProps> = ({
       id={blockData.id.toString()}
       draggable={draggable}
       onDragStart={dragStart}
-      className={`block block-${blockData.color} border-white`}
+      className={`block block-${blockData.color} border-white ${draggable && "draggable"}`}
     >
     </div>
   );

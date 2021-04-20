@@ -77,3 +77,8 @@ Tube border renkleri ise aynı renk blokların toplanması halinde degistirildi.
 
 Kullanıcı bölümü tamamladığında altta sonra belirip, bir sonraki seviyeye geçirecek buton eklendi.
 Ayrıca zorla sürükleme işlemi başlatınca ortaya çıkan hata giderildi.
+
+> ## Video 15 - Son düzeltmeler yapıldı
+
+Oyunun butonlarına ikonlar eklendi ve görüntüleri iyileştirildi.
+Sonraki bölüm butonu hatası düzeltildi.

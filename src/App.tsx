@@ -6,6 +6,9 @@ import { IBlockItem } from "./interfaces";
 import { useRef } from "react";
 import { levels } from "./levels";
 import { checkAll } from "./utils";
+import reset_logo from "./assets/reset.svg";
+import undo_logo from "./assets/undo.svg";
+import next_logo from "./assets/next.svg";
 
 function App() {
   // return <Demo/>
@@ -115,11 +118,29 @@ function App() {
       </div>
       <div className="game-area">{tubes}</div>
       <div className="controls flex-box">
-        <button onClick={reset}>sifirla</button>
-        <button onClick={undo} disabled={moves.current.length < 1}>
-          geri al
+        <button className="btn" onClick={reset}>
+          <img src={reset_logo} alt="" />
         </button>
-        {isAllSorted && <button onClick={nextLevel}>sonraki</button>}
+        <button
+          className="btn"
+          onClick={undo}
+          disabled={moves.current.length < 1}
+        >
+          <img src={undo_logo} alt="" />
+        </button>
+        {isAllSorted && (
+          <button
+            className="btn"
+            onClick={nextLevel}
+            disabled={level === levels.length - 1}
+          >
+            {level === levels.length - 1 ? (
+              <span className="title">oyun bitti</span>
+            ) : (
+              <img src={next_logo} alt="" />
+            )}
+          </button>
+        )}
       </div>
     </div>
   );
