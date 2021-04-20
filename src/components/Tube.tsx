@@ -14,9 +14,18 @@ export const Tube: React.FunctionComponent<IProps> = ({
   const allowDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
   };
-  const blocks = items.map((i) => <Block key={i.id} blockData={i} />);
+  const blocks = items
+    .sort((s, i) => s.order - i.order)
+    .map((i, index, arr) => (
+      <Block key={i.id} blockData={i} draggable={arr.length - 1 === index} />
+    ));
   return (
-    <div id={`tube${id}`} className="tube" onDragOver={allowDrop} onDrop={dropHandler}>
+    <div
+      id={`tube${id}`}
+      className="tube"
+      onDragOver={allowDrop}
+      onDrop={dropHandler}
+    >
       {blocks}
     </div>
   );

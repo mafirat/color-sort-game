@@ -32,3 +32,8 @@ Itemset verisi ile block ve tube olusturma yapildi.
 > ## Video 6 - Ondrop metodu eklendi
 
 ondrop metodu ile hangi block hangi tube içerisine bırakıldı o yakalandı.
+
+> ## Video 7 - Blok siralamasi duzenlendi
+
+Drop anında block'u ilgili tube içerisine taşıma yapıldı. Aynı zamanda ortaya çıkan sıralama sorunu `order` verisine göre **sort** ederek çözüldü.
+tube içerisinde en üstte bulunan **block** _draggable_ `true` edilip diğerleri `false` olacak şekilde ayarlandı.

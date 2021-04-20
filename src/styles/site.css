@@ -42,14 +42,14 @@ body {
 }
 
 .tube {
-  min-height: 120px;
+  min-height: 150px;
   width: 76px;
   padding: 5px;
   border: 2px solid white;
   border-top: none;
   border-radius: 0 0 10px 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
   gap: 5px;
 }

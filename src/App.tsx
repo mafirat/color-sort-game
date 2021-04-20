@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles/site.css";
 // import { Demo } from "./components/Demo";
 import { Tube } from "./components/Tube";
@@ -55,10 +55,17 @@ const itemSet: IBlockItem[] = [
 ];
 function App() {
   // return <Demo/>
+  const [elements, setElements] = useState<IBlockItem[]>(itemSet);
   const dropHandler = (e: React.DragEvent<HTMLDivElement>) => {
-    const tube = Number.parseInt(e.currentTarget.id.slice(-1));
-    const block = Number.parseInt(e.dataTransfer.getData("text"));
-    console.log({ block, tube });
+    const tubeId = Number.parseInt(e.currentTarget.id.slice(-1));
+    const blockId = Number.parseInt(e.dataTransfer.getData("text"));
+    const nElements = elements.map((e) => {
+      if (e.id === blockId) {
+        e.tube = tubeId;
+      }
+      return e;
+    });
+    setElements(nElements);
   };
 
   let tubes = [];
@@ -67,7 +74,7 @@ function App() {
       <Tube
         id={i.toString()}
         key={i}
-        items={itemSet.filter((t) => t.tube === i)}
+        items={elements.filter((t) => t.tube === i)}
         dropHandler={dropHandler}
       />
     );
