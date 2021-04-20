@@ -37,3 +37,11 @@ ondrop metodu ile hangi block hangi tube içerisine bırakıldı o yakalandı.
 
 Drop anında block'u ilgili tube içerisine taşıma yapıldı. Aynı zamanda ortaya çıkan sıralama sorunu `order` verisine göre **sort** ederek çözüldü.
 tube içerisinde en üstte bulunan **block** _draggable_ `true` edilip diğerleri `false` olacak şekilde ayarlandı.
+
+> ## Video 8 - Bırakma anındaki hatalar giderildi.
+
+Drop anında gerekli kontroller yapıldı.
+
+- dizi büyüklüğü
+- önceki renk kontrolü
+- order güncelleme

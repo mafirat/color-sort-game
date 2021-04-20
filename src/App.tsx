@@ -56,16 +56,27 @@ const itemSet: IBlockItem[] = [
 function App() {
   // return <Demo/>
   const [elements, setElements] = useState<IBlockItem[]>(itemSet);
+
   const dropHandler = (e: React.DragEvent<HTMLDivElement>) => {
     const tubeId = Number.parseInt(e.currentTarget.id.slice(-1));
     const blockId = Number.parseInt(e.dataTransfer.getData("text"));
-    const nElements = elements.map((e) => {
-      if (e.id === blockId) {
-        e.tube = tubeId;
-      }
-      return e;
-    });
-    setElements(nElements);
+    const block = elements.find((e) => e.id === blockId);
+    const tube = elements
+      .filter((b) => b.tube === tubeId)
+      .sort((s, i) => s.order - i.order);
+    if (
+      tube.length === 0 ||
+      (tube.length < 4 && tube[tube.length - 1].color === block?.color)
+    ) {
+      const nElements = elements.map((e) => {
+        if (e.id === blockId) {
+          e.tube = tubeId;
+          e.order = tube.length + 1;
+        }
+        return e;
+      });
+      setElements(nElements);
+    }
   };
 
   let tubes = [];
