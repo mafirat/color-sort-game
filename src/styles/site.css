@@ -36,6 +36,12 @@ body {
 .block-blue {
   background-color: #0d47a1;
 }
+.block-green {
+  background-color: #1b5e20;
+}
+.block-yellow {
+  background-color: #ffb300;
+}
 
 .border-white {
   border: 1px solid white;

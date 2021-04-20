@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./styles/site.css";
 // import { Demo } from "./components/Demo";
 import { Tube } from "./components/Tube";
@@ -54,7 +54,7 @@ function App() {
     setElements(nElements);
   };
   let tubes = [];
-  for (let i = 1; i <= 3; i++) {
+  for (let i = 1; i <= levels[level].tubeCount; i++) {
     tubes.push(
       <Tube
         id={i.toString()}
@@ -64,11 +64,14 @@ function App() {
       />
     );
   }
+
+  useEffect(() => {
+    reset();
+  }, [level]);
+
   const levelChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setLevel(Number.parseInt(e.currentTarget.value));
   };
-  console.log({ level });
-
   return (
     <div className="container">
       <div className="flex-box level-area">

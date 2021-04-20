@@ -63,3 +63,7 @@ Kullanıcıya yaptığı hamleleri geri alma özelliği kazandırıldı.
 > ## Video 11 - Seviye sistemi ekleme p1
 
 Kullanıcıya farklı seviyeler seçebileceği bir sistem eklenmeye başlandı.
+
+> ## Video 12 - Seviye sistemi ekleme p1
+
+Kullanıcıya farklı seviyeler seçebileceği bir sistem ekleme islemi tamamlandi.
